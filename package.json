@@ -1,0 +1,23 @@
+{
+  "name": "webcrawlerhttp",
+  "version": "1.0.0",
+  "description": "Web_Crawler",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuPhoenixbis/WebCrawlerHttp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuPhoenixbis/WebCrawlerHttp/issues"
+  },
+  "homepage": "https://github.com/anuPhoenixbis/WebCrawlerHttp#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
