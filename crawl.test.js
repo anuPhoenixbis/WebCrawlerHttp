@@ -12,3 +12,6 @@ test('normalize',()=>{
 
 //run this cmd to install jest
 //npm install --save-dev jest
+
+//we are not specifiying the version of node using in .nvmrc file as we are using the 
+//traditional method of compliation
