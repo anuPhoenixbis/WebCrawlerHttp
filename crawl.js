@@ -1,5 +1,30 @@
 const {JSDOM} = require("jsdom")//importing jsdom
 
+async function crawlPage(currentURL){
+    console.log("crawling : " +currentURL);
+    try {
+        const resp = await fetch(currentURL)//fetching the url in this obj
+        if(resp.status>399){
+            console.log("error status code: "+ resp.status+ " on page " + currentURL);
+            return
+        }
+
+        const contentType = resp.headers.get("content-type")
+        if(!contentType.includes("text/html")){//checking if the content is non-html or not
+            console.log("non-html response");//might me image or something
+            return 
+        }
+
+        const text = await resp.text();
+        console.log(text);//getting its text
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+    
+}
+
 function getUrlsFromHTML(htmlBody,baseUrl) {
     const urls =[]
     const dom =  new JSDOM(htmlBody)
@@ -58,5 +83,6 @@ function normalize(urlString) {//standardization isn't done yet
 
 module.exports={
     normalize,//to make this method available to other js files
-    getUrlsFromHTML
+    getUrlsFromHTML,
+    crawlPage
 }
