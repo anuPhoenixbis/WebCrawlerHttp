@@ -19,5 +19,13 @@
   "homepage": "https://github.com/anuPhoenixbis/WebCrawlerHttp#readme",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "_comments":
+    "jsdom is a JavaScript library that provides a virtual DOM environment within Node.js"
+  ,
+  "_comments_":"Jest is a JavaScript testing framework designed to ensure the correctness of any JavaScript codebase."
+  ,
+  "dependencies": {
+    "jsdom": "^26.0.0"
   }
 }

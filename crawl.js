@@ -1,3 +1,38 @@
+const {JSDOM} = require("jsdom")//importing jsdom
+
+function getUrlsFromHTML(htmlBody,baseUrl) {
+    const urls =[]
+    const dom =  new JSDOM(htmlBody)
+    const linkElements = dom.window.document.querySelectorAll('a')//this line returns us a list of all things in the specified tags , here a tag
+    for(const linkElement of linkElements){
+        if (linkElement.href.slice(0,1)==='/') {
+            //relative url
+            try {
+                
+                const urlObj = new URL(baseUrl+linkElement.href)//if the url isn't a valid usrl this obj while being created 
+                //throws an error
+                urls.push(baseUrl+linkElement.href)
+            } catch (err) {
+                console.log("Invalid URL"+err);
+                
+            }
+        } else {
+            //abs url
+            try {
+                
+                const urlObj = new URL(linkElement.href)//if the url isn't a valid usrl this obj while being created 
+                //throws an error
+                urls.push(urlObj.href)
+            } catch (err) {
+                console.log("Invalid URL"+ err);
+                
+            }
+        }
+        
+    }
+    return urls
+}
+
 function normalize(urlString) {//standardization isn't done yet
     const urlObj = new URL(urlString)
     const hostPath =  urlObj.hostname+urlObj.pathname
@@ -22,5 +57,6 @@ function normalize(urlString) {//standardization isn't done yet
 //  JavaScript value from one file to another.
 
 module.exports={
-    normalize//to make this method available to other js files
+    normalize,//to make this method available to other js files
+    getUrlsFromHTML
 }
