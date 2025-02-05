@@ -4,8 +4,8 @@ const {test , expect} = require('@jest/globals')//syntax of jest testing mechani
 
 test('normalize',()=>{
     const input =''
-    const actual = normalize(input)
-    const expected =''
+    const actual = normalize(input)//holds our output after the process is done
+    const expected =''//holds our expected output
     expect(actual).toEqual(expected)//using the expect method to check if the test runs or not 
 //basically jest is testing mechanism
 })
