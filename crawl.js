@@ -26,13 +26,13 @@ async function crawlPage(baseUrl ,currentURL , pages){//baseUrl is the homepage 
         const resp = await fetch(currentURL)//fetching the url in this obj
         if(resp.status>399){
             console.log("error status code: "+ resp.status+ " on page " + currentURL);
-            return
+            return pages
         }
 
         const contentType = resp.headers.get("content-type")
         if(!contentType.includes("text/html")){//checking if the content is non-html or not
             console.log("non-html response");//might me image or something
-            return 
+            return pages
         }
 
         const htmlBody = await resp.text();//getting its text

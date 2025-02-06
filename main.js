@@ -1,6 +1,6 @@
 const {crawlPage} = require("./crawl.js")
 
-function main() {
+async function main() {
     //process.argv contains the total list of args provided while the process is being executed from the terminal
     //in order to execute this process we will write "node main.js" 2 args and these must be written before providing any 3 arg of website
     //hence process.argv.length must be less than 3 if no website or 3 arg is given 
@@ -27,7 +27,7 @@ function main() {
     // }
     const baseURL = process.argv[2] //getting the url provided
     console.log("crawl" + baseURL);
-    const pages =crawlPage(baseURL , baseURL , {})//passing the baseurl in crawlPage ; start of recursion
+    const pages = await crawlPage(baseURL , baseURL , {})//passing the baseurl in crawlPage ; start of recursion
 
 
     // This method returns an array of the object's own enumerable property [key, value] pairs. Each element
