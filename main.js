@@ -27,6 +27,16 @@ function main() {
     // }
     const baseURL = process.argv[2] //getting the url provided
     console.log("crawl" + baseURL);
-    crawlPage(baseURL)//passing the baseurl in crawlPage
+    const pages =crawlPage(baseURL , baseURL , {})//passing the baseurl in crawlPage ; start of recursion
+
+
+    // This method returns an array of the object's own enumerable property [key, value] pairs. Each element
+    //  in the array is a two-element array where the first element is the key and the second element is the value.
+    //pages is an object then we can iterate the entries of the pages object
+    for(const page of Object.entries(pages)){//iterating the pages
+        console.log(page);
+        
+    }
+
 }
 main()
